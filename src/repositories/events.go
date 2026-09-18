@@ -23,9 +23,16 @@ func (r *EventsRepository) Create(event models.Event) error {
 
 func (r *EventsRepository) EventsSince(ctx context.Context, since time.Time) ([]models.Event, error) {
 	var events []models.Event
-	result := r.db.Connection.Where("created_at >= ?", since).Find(&events)
+
+	result := r.db.Connection.
+		WithContext(ctx).
+		Where("created_at >= ?", since.Unix()).
+		Order("created_at DESC").
+		Find(&events)
+
 	if result.Error != nil {
 		return nil, result.Error
 	}
+
 	return events, nil
 }
