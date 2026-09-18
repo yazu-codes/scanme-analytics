@@ -1,0 +1,21 @@
+server:
+  port: 8080
+  env: development
+
+database:
+  driver: postgres
+  host: localhost
+  port: 5432
+  user: postgres
+  password:
+  dbname: scanmenu
+  sslmode: disable
+  timezone: UTC
+
+jwt:
+  secret: your-secret-key-change-in-production
+  expiration: 24
+
+admin:
+  email: sample@gmail.com
+  password: 123123
