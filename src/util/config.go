@@ -26,7 +26,7 @@ func NewConfigReader() *ConfigReader {
 }
 
 func (c *ConfigReader) Setup() {
-	config := os.Getenv("CONFIG_YAML_AUTH")
+	config := os.Getenv("CONFIG_YAML_ANALYTICS")
 	// config = "a"
 
 	configPath := filepath.Join("configs", "config.yaml")
