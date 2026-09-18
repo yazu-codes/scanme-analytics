@@ -36,6 +36,11 @@ func (eh *EventHandler) RecordEvent(c *gin.Context) {
 		return
 	}
 
+	if event.Validate() != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid event data"})
+		return
+	}
+
 	err := eh.eventRepo.Create(event)
 	if err != nil {
 		c.AbortWithStatusJSON(500, gin.H{"error": "Failed to record event"})
