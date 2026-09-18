@@ -7,11 +7,12 @@ import (
 )
 
 type Event struct {
-	ID        uint      `gorm:"primaryKey" json:"id"`
-	ClientID  uuid.UUID `gorm:"type:uuid;not null" json:"client_id"`
-	Name      string    `gorm:"not null" json:"name"`
-	CreatedAt int64     `gorm:"autoCreateTime"`
-	IpHash    string    `gorm:"not null" json:"-"`
+	ID                    uint      `gorm:"primaryKey" json:"id"`
+	ClientID              uuid.UUID `gorm:"type:uuid;not null" json:"client_id"`
+	Name                  string    `gorm:"not null" json:"name"`
+	CorrespondingItemName string    `json:"corresponding_item_name"`
+	CreatedAt             int64     `gorm:"autoCreateTime"`
+	IpHash                string    `gorm:"not null" json:"-"`
 }
 
 // todo: Add a method to validate the event data before saving it to the database.
