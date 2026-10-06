@@ -12,7 +12,7 @@ type Event struct {
 	Name                  string    `gorm:"not null" json:"name"`
 	CorrespondingItemName string    `json:"corresponding_item_name"`
 	CreatedAt             int64     `gorm:"autoCreateTime"`
-	IpHash                string    `gorm:"not null" json:"-"`
+	IpHash                string    `gorm:"not null" json:"ip_hash"`
 }
 
 // todo: Add a method to validate the event data before saving it to the database.
