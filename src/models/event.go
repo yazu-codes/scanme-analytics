@@ -45,6 +45,8 @@ func isPermittedEventName(name string) bool {
 		"code_scan",
 		"qr_scan",
 		"item_click",
+		"translate",
+		"ai",
 	}
 	for _, permittedName := range permittedEventNames {
 		if name == permittedName {
